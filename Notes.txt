@@ -1,0 +1,61 @@
+use <db name> command activates db(if db doesn't exist then new db is created and activated automatically)
+
+$ mongo
+MongoDB shell version v4.0.3
+connecting to: mongodb://127.0.0.1:27017
+Implicit session: session { "id" : UUID("13f8507e-9b32-4774-afa5-f2e50cc32f7f") }
+MongoDB server version: 4.0.3
+> use shop
+switched to db shop
+
+use db.products.insertOne({...}) command to insert json object in products collection
+if products collection doesn't exist then it will be created automatically and json
+object will be inserted in that collection
+
+Quotations around key name can be dropped though key will be stored with quotation mark
+in db. Values can be string, number, null, boolean, etc..
+
+> db.products.insertOne({name: "Immortals of Mehula", price: 400})
+
+this command will insert the document into the collection with name and price
+db refers to shop automatically as shop is the active db right now
+
+If document insertion is successfull then you should see
+
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5bc8caf8527a23bf58caa212")
+}
+
+This confirms document/data is inserted and mongodb automatically assigns a unique id to the document
+which returns it back to you
+
+db.products.find()
+If you pass no arguments to find method then it will give all the arguments that are present
+in that collection
+
+> db.products.find()
+{ "_id" : ObjectId("5bc8cad3527a23bf58caa211"), "name" : "sam", "age" : 29 }
+{ "_id" : ObjectId("5bc8caf8527a23bf58caa212"), "name" : "Immortals", "price" : 400 }
+
+Quotations around key are present as this is a json and for a valid json, keys must be surrounded by quotations
+We don't have to use quotations around key at the time of sending key because we can then in that
+case pass JavaScript objects directly to mongodb apis without any need to convert them to json
+mongodb will do json conversion internally
+
+db.products.find().pretty()
+will output json in nice pretty format
+
+
+db.products.find().pretty()
+{ "_id" : ObjectId("5bc8cad3527a23bf58caa211"), "name" : "sam", "age" : 29 }
+{
+        "_id" : ObjectId("5bc8caf8527a23bf58caa212"),
+        "name" : "Immortals",
+        "price" : 400
+}
+
+
+Doubt: Why pretty is showing not showing first entry in pretty format???
+
+
