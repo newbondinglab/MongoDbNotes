@@ -16,3 +16,4 @@
 
 * mongod --dbpath "my/new/path" (on Windows, use backslashes + the drive name => mongod --dbpath "C:\my\path")
 
+* use sudo mongod or run git bash as an administrator on windows(if needed)
