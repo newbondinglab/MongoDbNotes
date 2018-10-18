@@ -1,0 +1,18 @@
+* Install mongodb software server community edition
+
+* Setup Path
+
+* Windows stop mongodb service command
+  - net stop MongoDB
+
+* Start mongod server using mongod
+
+* mongo is a client
+
+* By default dbpath is /data/db or C:\data\db or C:\Program Files\MongoDB\Server\4.0\data
+
+* To give different data path to mongodb use command:
+  mongod --dbpath "~/workspace/data/db"
+
+* mongod --dbpath "my/new/path" (on Windows, use backslashes + the drive name => mongod --dbpath "C:\my\path")
+
